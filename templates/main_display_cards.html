@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Cards</title>
+</head>
+
+<style type="text/css">
+
+*{   
+ margin: 2px;
+ padding: 5px;
+}
+
+body{   
+ font-family: arial;
+}
+
+.main{
+ margin: 2%;
+}
+
+.card{
+     width: 20%;
+     display: inline-block;
+     box-shadow: 2px 2px 20px black;
+     border-radius: 5px;
+     margin: 5%;
+   }
+
+
+.title{
+  text-align: left;
+  padding: 10px;
+ }
+
+
+.des{
+  padding: 3px;
+  text-align: left;
+  padding-top: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+</style>
+
+<style>
+p{
+    color: silver;
+}
+footer{
+    text-align: center;
+    background-color: black;
+    color: blue;
+}
+
+.card:hover {
+    color: blue;
+}
+
+</style>
+
+<body>
+
+<h1> Basic Panel layout </h1>
+
+<div id = "createcard" class="main"></div>
+
+ <script>
+ let greeting_array = [
+    
+    {
+        greeting: "Hi",
+        name: "Anam"
+    },
+
+    {
+        greeting: "Hello",
+        name: "Myra"
+    },
+
+    {
+        greeting: "Hey",
+        name: "Ashi"
+    },
+
+    {
+        greeting: "Hi!How are you?",
+        name: "Minakshi"
+    },
+
+    {
+        greeting: "Hello",
+        name: "Anamika"
+    },
+
+    {
+        greeting: "Bonjour",
+        name: "Jack"
+    },
+
+    {
+        greeting: "Hello",
+        name: "Jill"
+    },
+
+    {
+        greeting: "Hi",
+        name: "Humpty"
+    },
+
+    {
+        greeting: "Good morning!",
+        name: "Dumpty"
+    }
+]
+var div_string= "", i;
+for (i=0; i<9; i++){
+
+    div_string += "<div class='card'> <div class='title'> <h4>" + greeting_array[i].greeting + "</h4><p> (Greeting)</p></div>"+"<div class='des'><h4> " + greeting_array[i].name + "</h4><p> (name)</p></div></div>";
+}
+document.getElementById("createcard").innerHTML = div_string;
+ </script>     
+
+<footer>
+    <h5>Author: Anam Fazal</h5>
+    <p><a href="mailto:abc@xyz.com">send an email</a></p>
+</footer>
+
+</body>
+</html>
+
+
