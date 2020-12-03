@@ -1,15 +1,32 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-import json
 from django.views import View
+from .models import GreetingCard
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers
+import json
+
 # Create your views here.
+def greetingcard(request):
+    """
+    Created method to go to greeting card page which helps ajax to get data from home page.
+    return: greeting card html page
+    """
+    return render(request, 'formdisplay.html')
+
 class GreetingView(View):
-    def get(self, request ):
-        """
-        greeting_qs = GreetingCard.objects.all().only('name', 'message')
-        dict_ = {}
-        greeting_qs = [ dict_['name'] for each in greeting_qs]
-        print(greeting_qs)
-        data = serializers.serialize("json", greeting_qs)
-        """
-        return render(request, "main_display_cards.html")
+    """
+    Created class to get view of greeting card objects
+    return: dictionary of database elements stored
+    """        
+    def get(self, request):
+        try:
+            greeting_qs = GreetingCard.objects.all()
+            greeting_ql = list(greeting_qs.values('name', 'message'))
+            return HttpResponse(json.dumps(greeting_ql))
+        except Exception:
+            return HttpResponse("Field not found in database")
+
+
+
+
+

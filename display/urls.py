@@ -1,6 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
+from .views import GreetingView
+
 
 urlpatterns = [
-    path('', views.GreetingView.as_view(), name = "greeting card")
+    path('greetingcard/', views.greetingcard, name= "greeting view"),
+    path('', views.GreetingView.as_view())
 ]
